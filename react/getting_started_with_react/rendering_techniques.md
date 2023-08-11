@@ -1,6 +1,6 @@
 ### Introduction
 
-Now that we have learned how JSX works and how to write it. This lesson will cover how we can render multiple elements and conditionally render UI in JSX.
+Now that we have learned how JSX works and how to write it, this lesson will cover how we can render multiple elements and conditionally render UI in JSX.
 
 ### Lesson overview
 
@@ -65,7 +65,7 @@ function App() {
 }
 ~~~
 
-You may be curious as to what the `key` is in our `<li>` element. We will dive into how keys work in the next lesson. But, to explain briefly, it is to let React know the identity of each element in the list, React must know this information if you are dealing with a dynamic list where you add or remove elements. Since we are only dealing with a static list, it does not matter for now.
+You may be curious as to what the `key` is in our `<li>` element. We will dive into how keys work in the next lesson. But, to explain briefly, it is to let React know the identity of each element in the list. React must know this information if you are dealing with a dynamic list where you add or remove elements. Since we are only dealing with a static list, it does not matter for now.
 
 ### Rendering a list of components in JSX
 
@@ -102,7 +102,7 @@ function App() {
 
 We have moved our `<ul>` element to a different component called `<List />`. It still returns the `<ul>` element, but we can do a lot more with it as a component.
 
-This component accepts a `props` which is an object containing the `animals` that we defined as a property when we wrote `<List animals={animals}>`. Do note that you can name it anything, for example, `<List animalList={animals} />`. You will still need to pass the animals to the property, but now you will use `props.animalList` instead of `props.animals`.
+This component accepts a `props` which is an object containing the `animals` that we defined as a property when we wrote `<List animals={animals} />`. Do note that you can name it anything, for example, `<List animalList={animals} />`. You will still need to pass the animals to the property, but now you will use `props.animalList` instead of `props.animals`.
 
 We have also created a different component for the `<li>` element called `<ListItem />`, which also accepts `props`, and uses `props.animal` to render the text. It should now render the same thing. 
 
@@ -293,7 +293,7 @@ function App() {
 }
 ~~~
 
-Nesting ternaries and multiple `&&` operators can be intimidating to look at, so be sure to test things out!
+Nested ternaries and multiple `&&` operators can be intimidating to look at, so be sure to test things out!
 
 ### Assignment
 

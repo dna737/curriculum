@@ -332,15 +332,11 @@ It's important to note that _how_ hashing works is beyond the scope of this less
 Inside your `LocalStrategy` function we need to replace the `user.password !== password` expression with the `bcrypt.compare()` function.
 
 ~~~javascript
-bcrypt.compare(password, user.password, (err, res) => {
-  if (res) {
-    // passwords match! log user in
-    return done(null, user)
-  } else {
-    // passwords do not match!
-    return done(null, false, { message: "Incorrect password" })
-  }
-})
+const match = await bcrypt.compare(password, user.password);
+if (!match) {
+  // passwords do not match!
+  return done(null, false, { message: "Incorrect password" })
+}
 ~~~
 
 You should now be able to log in using the new user you've created (the one with a hashed password).  <span id='bcrypt'>Unfortunately, users that were saved BEFORE you added bcrypt will no longer work, but that's a small price to pay for security</span>! (and a good reason to include bcrypt from the start on your next project)
@@ -349,9 +345,7 @@ You should now be able to log in using the new user you've created (the one with
 ### Additional resources
 This section contains helpful links to other content. It isn't required, so consider it supplemental.
 
-- [This article](https://levelup.gitconnected.com/everything-you-need-to-know-about-the-passport-local-passport-js-strategy-633bbab6195) goes into great detail about the passport local strategy and brings the magic that happens behind the scenes into the light. It provides a comprehensive foundation for how session-based authentication works using browser cookies along with backend sessions to manage users.
-
-- If you like video content, watch this [Youtube Playlist](https://www.youtube.com/playlist?list=PLYQSCk-qyTW2ewJ05f_GKHtTIzjynDgjK) by the same author who wrote the article above. You just need to watch the first 6 videos.
+- If you like video content, watch this [Youtube Playlist](https://www.youtube.com/playlist?list=PLYQSCk-qyTW2ewJ05f_GKHtTIzjynDgjK). You just need to watch the first 6 videos.
 
 - [This video](https://www.youtube.com/watch?v=8ZtInClXe1Q) gives a broad overview of some of the different methods to store passwords in databases, and the risks of some of them. 
 
